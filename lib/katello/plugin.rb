@@ -3,7 +3,18 @@ require 'katello/permission_creator'
 Foreman::Plugin.register :katello do
   requires_foreman '>= 1.16'
 
-  sub_menu :top_menu, :content_menu, :caption => N_('Content'), :after => :monitor_menu do
+  sub_menu :top_menu, :xui_menu, :caption => N_('Experimental UI'), :after => :monitor_menu do
+    menu :top_menu,
+         :environments,
+         :caption => N_('_this_will_be_removed_by_react_'),
+         :url => '/_this_will_be_removed_by_react_',
+         :url_hash => {:controller => 'katello/api/v2/environments',
+                       :action => 'index'},
+         :engine => Katello::Engine,
+         :turbolinks => false
+  end
+
+  sub_menu :top_menu, :content_menu, :caption => N_('Content'), :after => :xui_menu do
     menu :top_menu,
          :environments,
          :caption => N_('Lifecycle Environments'),

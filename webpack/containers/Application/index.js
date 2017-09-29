@@ -1,14 +1,25 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+import RouterComponent from '../Router';
 
-const Application = ({ store }) => (
-    <Router>
-        <div>
-            <Route path="/redhat_repositories" component={Repos} />
-            <Route path="/dashboard" component={Dashboard} />
-        </div>
-    </Router>
-);
+const RouterPortal = () => {
+    var routerRoot = document.querySelector('#menu > li:nth-child(3)');
+    if (!routerRoot) return null;
+
+    let dropDown = document.querySelector('#menu > li:nth-child(3)');
+    let placeholder = document.querySelector(
+        '#menu > li:nth-child(3) > ul:nth-child(2)',
+    );
+    if (
+        placeholder &&
+        placeholder.innerText.trim() === '_this_will_be_removed_by_react_'
+    ) {
+        dropDown.removeChild(placeholder);
+    }
+
+    return ReactDOM.createPortal(<RouterComponent />, routerRoot);
+};
 
 const Dashboard = () => (
     <div>
@@ -23,4 +34,14 @@ const Repos = () => (
     </div>
 );
 
-export default Application;
+export default ({ store }) => (
+    <div className="insdie">
+        <Router>
+            <div>
+                <RouterPortal />
+                <Route path="/redhat_repositories" component={Repos} />
+                <Route path="/dashboard" component={Dashboard} />
+            </div>
+        </Router>
+    </div>
+);

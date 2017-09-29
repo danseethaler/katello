@@ -31,5 +31,6 @@ Katello::Engine.routes.draw do
 
   if Setting[:katello_experimental_ui]
     match '/redhat_repositories' => 'react#index', :via => [:get]
+    match '/activation_keys' => 'react#index', :via => [:get]
   end
 end

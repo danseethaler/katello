@@ -36,6 +36,7 @@ Foreman::Plugin.register :katello do
            :redhat_provider,
            :caption => N_('Red Hat Repositories'),
            :url => '/redhat_repositories',
+           :url_hash => {:controller => 'katello/providers', :action => 'redhat_provider'},
            :engine => Katello::Engine,
            :turbolinks => false
     else

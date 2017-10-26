@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import Pages from './pagesList';
+import Routes from './Routes';
 
 export default () => (
   <Router>
-    <Pages />
+    <Routes />
   </Router>
 );

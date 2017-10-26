@@ -1,6 +1,6 @@
 import componentRegistry from 'foremanReact/components/componentRegistry';
 import { mount } from 'foremanReact/common/MountingService';
-import ExperimentalUi from './containers/Application';
+import ExperimentalUi from './containers/Application/index';
 
 componentRegistry.register({
   name: 'xui_katello',

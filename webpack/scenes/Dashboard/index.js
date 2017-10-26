@@ -1,3 +1,3 @@
 import React from 'react';
 
-export default () => <p>This is the dashboard component!</p>;
+export default () => <h1>Dashboard Page</h1>;

@@ -1,3 +1,3 @@
 import React from 'react';
 
-export default () => <p>This is the repos component!</p>;
+export default () => <h1>Repos Page</h1>;
